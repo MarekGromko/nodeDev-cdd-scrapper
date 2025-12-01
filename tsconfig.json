@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "rootDir": "./",
+
+        "paths": {
+            "@common/*": ["./src/common/*"],
+            "@src/*":    ["./src/*"],
+            "@test/*":   ["./test/*"]
+        },
+
+        "strict": true,        
+        "target": "esnext",
+        "module": "es2022",
+        "moduleResolution": "node",
+        "esModuleInterop": true,                 
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "noEmit": true,
+        "strictNullChecks": true,
+
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "include": [
+        "src/**/*",
+        "test/**/*"
+    ]
+}

@@ -1,0 +1,3 @@
+pipelines:
+  exchange-rates-api:
+    access_key: $EXCHANGE_RATES_API_ACCESS_KEY
