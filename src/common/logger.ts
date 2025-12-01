@@ -1,5 +1,6 @@
 import * as color from "colors/safe";
 import { createLogger, format, transports } from "winston";
+import config from "config";
 
 const leveledColor = (level: string) => {
     switch(level) {
@@ -19,7 +20,7 @@ const consoleFormat = format.printf(({timestamp, level, message, ...opts})=>{
         color.grey(`${timestamp}`),
         opts.pipeline       ? `(${opts.pipeline})` : '',
         opts.pipelineStep   ? `(${opts.pipelineStep})` : '',
-        `[${leveledColor(level)}]`,
+        `[${leveledColor(level)(level)}]`,
         `: ${level === "error" ? color.red(`${message}`) : message}`
     ].filter(x=>x).join(" ");
 });
@@ -29,14 +30,15 @@ const consoleTransport = new transports.Console({
         format.timestamp(),
         consoleFormat
     ),
-    level: "silly",
+    level: config.get<string>("logger.console.level")
 });
 
-const userTransport = new transports.Console({
+const userTransport = new transports.File({
     format: format.combine(
         format.timestamp(),
         format.json()
     ),
+    filename: config.get<string>("logger.user.filename"),
     level: "info"
 });
 
@@ -45,6 +47,7 @@ const errorTransport = new transports.File({
         format.timestamp(),
         format.json()
     ),
+    filename: config.get<string>("logger.error.filename"),
     level: "error"
 });
 
