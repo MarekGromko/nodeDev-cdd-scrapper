@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Ce repository github contient les appelles API pour la collecte des données de l'application *Global Currency*. Les données sont récuprérer à l'aide de **Python**, traiter avec la librairy **Panda**, et enregistrer directement dans une collection **MongoDB**.
+Ce repository github contient les appelles API pour la collecte des données de l'application *Global Currency*. Les données sont récuprérées à l'aide de **Python**, traitées avec la librairy **Panda**, et enregistrées directement dans une collection **MongoDB**.
 
 ## Source des données
 
-Pour le projet *Global Currency*, les données historique des taux d'échange de monnaies ont été récupérer par le biais de différentes API qui offraient gratuitement une liste historique de données. Celle-ci inclus:
+Pour le projet *Global Currency*, les données historiques des taux d'échange de monnaies ont été récupérées par le biais de différentes API qui offraient gratuitement une liste historique de données. Celle-ci inclus:
 
 - [Forex API](https://fxapi.com/)
 - [European Central Bank](https://www.ecb.europa.eu/home/html/index.en.html)
@@ -25,6 +25,7 @@ Les données ont une structure extrêmement simple, le but étant plutôt d'en a
 | `date` | Date     | Date de relevé du taux |
 
 Vous avez un exemple de ces données récoltées dans le fichier `data-slice-5000.csv`.
+Aux total, La quantité de données à la fin du projet s'élève a 765k enregistrement, pour 170 différente monnaies sur plus de 10 ans.
 
 ## Architecture
 
@@ -65,12 +66,11 @@ nodeDev-cdd-scrapper/
     - `MONGODB_DBNAME` le nom de la base de données
     - `MONGODB_COLLECTION` le nom de la collection où enregistrer les données
     - `EXCHANGE_RATES_API_ACCESS_KEY` la clé d'accèes pour l'api exchangerates
-
 3. L'application à deux mode, un mode commande, et un mode intéractif:
 
 **Commandes**
 
-- `python ./src/main.py latest` retourne la date la plus récentes parmis les enregistrement dans la collection mongodb
-- `python ./src/main.py oldest` retourne la date la plus anciennes parmis les enregistrement dans la collection mongodb
+- `python ./src/main.py latest` retourne la date la plus récentes parmis les enregistrements dans la collection mongodb
+- `python ./src/main.py oldest` retourne la date la plus anciennes parmis les enregistrements dans la collection mongodb
 - `python ./src/main.py fetch [YYYY-MM-DD]` Fetch les données de l'api à une date données
 - `python ./src/main.py interactive` Ouvre le mode intéractif
