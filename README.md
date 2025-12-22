@@ -5,7 +5,7 @@
 Ce repository github contient les appelles API pour la collecte des données de l'application *Global Currency*. Les données sont récuprérées à l'aide de **Python**, traitées avec la librairy **Panda**, et enregistrées directement dans une collection **MongoDB**.
 
 **Repositories:**
-  - API : https://github.com/MarekGromko/nodeDev-cdd-api
+  - API : https://github.com/LorsenLamour/nodedev-cdd-api
   - Dashboard : https://github.com/MarekGromko/nodeDev-cdd-dashboard
 
 ## Source des données
