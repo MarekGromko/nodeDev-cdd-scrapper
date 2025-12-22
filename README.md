@@ -68,9 +68,14 @@ nodeDev-cdd-scrapper/
     - `EXCHANGE_RATES_API_ACCESS_KEY` la clé d'accèes pour l'api exchangerates
 3. L'application à deux mode, un mode commande, et un mode intéractif:
 
-**Commandes**
+### Commandes
 
 - `python ./src/main.py latest` retourne la date la plus récentes parmis les enregistrements dans la collection mongodb
 - `python ./src/main.py oldest` retourne la date la plus anciennes parmis les enregistrements dans la collection mongodb
 - `python ./src/main.py fetch [YYYY-MM-DD]` Fetch les données de l'api à une date données
 - `python ./src/main.py interactive` Ouvre le mode intéractif
+
+### Scripts
+
+- `fetch-now.sh` appelle la comande `fetch` à la date d'aujourd'hui
+- `scheduler-setup` crée une crontab (job) qui appelle chaque jour le script `fetch-now`
